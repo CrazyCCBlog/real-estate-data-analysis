@@ -1,0 +1,6 @@
+scrapy
+apscheduler
+python-Levenshtein
+pandas
+plotly
+numpy
