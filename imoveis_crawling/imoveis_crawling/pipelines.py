@@ -22,9 +22,10 @@ class ImoveisCrawlingPipeline(object):
         item['regiao'] = item['regiao'].replace('\t', '').replace('\n', '').replace("00e2", "â").\
             replace("00e1", "á").replace('00e9', 'é').replace('00f3', 'ó').replace('00e7', 'ç').\
             replace('00e3', 'ã').replace('00ed', 'í').replace('\\u', '')
-        item['detalhes'] = item['detalhes'].replace('\t', '').replace('\n', '').replace("00e2", "â").\
-            replace("00e1", "á").replace('00e9', 'é').replace('00f3', 'ó').replace('00e7', 'ç').\
-            replace('00e3', 'ã').replace('00ed', 'í').replace('\\u', '')
+        if item['detalhes']:
+            item['detalhes'] = item['detalhes'].replace('\t', '').replace('\n', '').replace("00e2", "â").\
+                replace("00e1", "á").replace('00e9', 'é').replace('00f3', 'ó').replace('00e7', 'ç').\
+                replace('00e3', 'ã').replace('00ed', 'í').replace('\\u', '')
 
         line = json.dumps(dict(item)) + '\n'
         self.file_obj.write(line)
