@@ -10,10 +10,12 @@ Crawler:
 - Opção de seleção de venda ou aluguel
 - Rotina de verificação diária
 
-Análise dos dados:
+Análise dos dados com jupyter notebook:
 - Mapa com estatísticas por bairro
 - Histograma de preço médio de locação/venda
 - Histograma do tempo de permanencia do anúncio na plataforma
+
+Visualização dos dados com kibana
 
 ## Instalação:
 
@@ -21,6 +23,13 @@ Para instalar os requisitos, execute:
 
 ```bash
 pip3 install -r requirements.txt
+```
+
+Para importar e visualizar os dados com o Kibana:
+
+```bash
+chmod +x install_filebeat.sh
+./install_filebeat.sh
 ```
 
 ## Execução do crawler:
@@ -40,6 +49,11 @@ python3 tasks.py
 ```
 
 Observação: a máquina que estiver executando o script deve ficar ligada 24h. 
+
+## Análise dos dados com o Kibana:
+
+...
+
 
 ## Análise dos dados:
 
