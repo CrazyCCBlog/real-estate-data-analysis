@@ -1,73 +1,76 @@
-# Análise do preco de imoveis
-Raspagem de anúncios em sites de imóveis e análise dos dados.
+# Real estate price analysis
+Scrapping and data analysis of properties in websites.
 
 ![Gráfico do preço médio de imóveis de aluguel na cidade de Goiânia](./doc/regioes_aluguel.png)
 
-## Funcionalidades:
+## Functionalities:
 
 Crawler:
-- Coleta de dados por região
-- Opção de seleção de venda ou aluguel
-- Rotina de verificação diária
+- Data collection per region
+- Select sells or rents
+- Schedule the time for scrapping run
 
-Análise dos dados com jupyter notebook:
-- Mapa com estatísticas por bairro
-- Histograma de preço médio de locação/venda
-- Histograma do tempo de permanencia do anúncio na plataforma
+Data analysis with jupyter notebook:
+- Map with statistics per district
+- Histogram of average price of sell/rent
+- Histogram of advertisement time in platform 
 
-Visualização dos dados com kibana
+Data visualization with kibana
 
-## Instalação:
+(In progress)
 
-Para instalar os requisitos, execute:
+## Installation:
+
+First, install the Python libraries requirements executing:
 
 ```bash
 pip3 install -r requirements.txt
 ```
-
-Para importar e visualizar os dados com o Kibana:
+To import and visualize the data with Kibana:
 
 ```bash
+# Install filebeat
 chmod +x install_filebeat.sh
 ./install_filebeat.sh
+# Run containers with Kibana/Elasticsearch/Logstash
 ```
 
-## Execução do crawler:
+## Crawler execution:
 
-O script do crawler baixa da Internet anúcios de aluguel ou venda de imoveis em determinada região.
+You can select the region to scrapy.
 
-Na pasta imoveis_crawling execute:
+In the folder imoveis_crawling execute:
 
 ```bash
 scrapy crawl IMOVEIS -a category=venda -a region=grande-goiania-e-anapolis -a state=go
 ```
 
-Você também pode criar uma tarefa que roda em segundo plano e baixa diariamente os anúncios. Para isso execute o script **tasks.py**:
+You can create a task that runs in background and download daily the ads: 
 
 ```bash
 python3 tasks.py
 ```
 
-Observação: a máquina que estiver executando o script deve ficar ligada 24h. 
+Obs.: If you shut down the machine you need execute the crawler again. 
 
-## Análise dos dados com o Kibana:
+## Data analysis with Kibana:
 
-...
+(In progress)
 
 
-## Análise dos dados:
+## Data analysis with Jupyter Notebook:
 
-Foram coletados dados da cidade de Goiânia no período de novembro de 2019 até fevereiro de 2020. O resultado da análise pode ser conferida abaixo:
+We collect the data of Goiânia(BR) city between November' 19 and February' 20, The example of plots are showed bellow.  
 
-Preço médio do aluguel dos imóveis:
+Average of price of properties rent:
 
 ![alt text](./doc/preco_medio_aluguel.png)
 
 
-Tipo do imóvel de aluguel:
+Type of properties:
 
 ![alt text](./doc/tipo_imovel_aluguel.png)
 
-Tempo médio do anúncio no ar:
+Average time of advertisement in the website:
 
 ![alt text](./doc/tempo_anuncio_no_ar_aluguel.png)
